@@ -17,7 +17,6 @@ class Solution:
             self.answer.append(0)
             self.one(a[0])
         elif len(a) == 2:
-            # self.answer.append(+2)
             self.two(a, plusminus)
         elif len(a) % 2 == 1: # если нечетные
             if self.target <= a[(len(a)//2)]: # левая граница
@@ -29,7 +28,6 @@ class Solution:
                 self.more(a[(len(a)//2)+1: len(a)], 1)
         else: # если четные
             if self.target <= a[(len(a)//2)-1]: # первая
-                # if plusminus: self.answer.append((len(a)//2)) # коретка в начале должна быть
                 self.more(a[0: (len(a)//2)-1], 0)
             else: 
                 self.answer.append((len(a)//2)) 
@@ -38,17 +36,25 @@ class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         self.nums = nums
         self.target = target
-        self.answer = [] 
-        if len(self.nums) == 1:
-            self.one(self.nums[0])
-        elif len(self.nums) == 2:
-            # self.answer.append(+2)
-            self.two(self.nums, 0)
-        elif len(self.nums) >= 3:
-            self.more(self.nums, 0)
-        return sum(self.answer)
+        # self.answer = [] 
+        r = len(nums)-1
+        l = 0
+        while r > l:
+            if 
+            if self.target <= (nums[(r-l)//2]):
+                r = ((r-l)//2)
+            else: 
+                l = ((r-l)//2)+1
+        # if len(self.nums) == 1:
+        #     self.one(self.nums[0])
+        # elif len(self.nums) == 2:
+        #     self.two(self.nums, 0)
+
+        # elif len(self.nums) >= 3:
+        #     self.more(self.nums, 0)
+        # return sum(self.answer)
 
 
 obj = Solution()
-res = obj.searchInsert([1,3,4,5,10], 2)
+res = obj.searchInsert([1,3,4,5,10,12,15,16], 2)
 print(res)
